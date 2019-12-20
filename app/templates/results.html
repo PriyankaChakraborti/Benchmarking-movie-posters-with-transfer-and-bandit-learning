@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Skeleton application demoing Heroku and Flask integration.">
+<meta name="author" content="@gotoariel">
+
+
+
+<!-- <link rel="icon" href="favicon.ico"> -->
+
+<title>Results</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<style>
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+margin-bottom: 0;
+border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+padding-top: 20px;
+background-color: #f1f1f1;
+height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+background-color: #555;
+color: white;
+padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+.sidenav {
+height: auto;
+padding: 15px;
+}
+.row.content {height:auto;} 
+}
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>                        
+</button>
+<a class="navbar-brand" href="/">POSTER BENCHMARKING</a>
+</div>
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav navbar-nav">
+<li><a href="/select">Select Movie Poster</a></li>
+<li class="active"><a>Results</a></li>
+<li><a href="/state">State of Bandit</a></li>
+<li><a href="https://github.com/moorebryan/flight-tracker" target="_blank">Source</a></li>
+</ul>
+
+</div>
+</div>
+</nav>
+
+<div class="container-fluid";>
+<div style="width: 400px; display: inline-block;vertical-align: top;horizontal-align: left;">
+<center><h2>Your Selected Poster</h2><center>
+</div>
+
+<div style="width: 800px; display: inline-block;vertical-align: top;horizontal-align: left;">
+<center><h2>Our Recommended Posters</h2><center>
+</div>
+
+<br>
+
+<div style="width: 1400px; display: inline-block;vertical-align: top;horizontal-align: left;">
+<img src="{{ target_name }}" hspace="100">
+<img src="{{ rec_poster_1 }}">
+<img src="{{ rec_poster_2 }}">
+<img src="{{ rec_poster_3 }}">
+<img src="{{ rec_poster_4 }}">
+<img src="{{ rec_poster_5 }}">
+</div>
+
+<br>
+
+<div style="width: 600px; display: inline-block;vertical-align: top;horizontal-align: left;">
+<h2>Recommended Poster Comparison Plot</h2>
+<img src="{{ plot_path }}">
+</div>
+
+<div style="width: 700px; display: inline-block;">
+<center><h2>Please rate these predictions</h2>
+<form action="/select" method="post">
+<input type="submit" name="submit_button" value="Good Suggestions">
+<input type="submit" name="submit_button" value="Okay Suggestions">
+<input type="submit" name="submit_button" value="Bad Suggestions">
+</form>
+<p> </p>
+<p> Good Suggestions means most recommended posters are similar to your chosen poster</p>
+<p> Okay Suggestions means that some recommendations are bad and some are good</p>
+<p> Bad Suggestions means most recommended posters are not similar to your chosen poster</p>
+
+</div><center>
+
+</div>
+
+<footer class="container-fluid text-center">
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+{{ script | safe }}
+
+</body>
+</html>

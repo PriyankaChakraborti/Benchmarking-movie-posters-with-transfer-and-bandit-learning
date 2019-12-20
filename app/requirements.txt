@@ -1,0 +1,14 @@
+gunicorn
+Flask
+numpy
+pandas
+Keras
+tensorflow
+scipy
+pickleshare
+requests
+Pillow
+bs4
+matplotlib
+urllib3
+glob3
