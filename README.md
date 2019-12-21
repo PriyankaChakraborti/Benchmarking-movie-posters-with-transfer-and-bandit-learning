@@ -7,3 +7,5 @@ The poster recommendation app is currently running on AWS and can be accessed on
 http://posterbenchmark-env-1.tvdz8pnqtu.us-east-2.elasticbeanstalk.com/
 # Link to google slide show
 https://drive.google.com/file/d/1NTJlm3S5E5WUFryhYDiwGoCE5aMG11ZW/view?usp=sharing
+# Packages used
+Keras back end for VGG-16 and Flask for the app .All bandit codes were written from scratch
