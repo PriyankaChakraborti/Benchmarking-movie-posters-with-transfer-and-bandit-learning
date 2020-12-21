@@ -25,7 +25,7 @@ from tensorflow import Graph
 arm_prob=[0.33, 0.33, 0.33]#assign some starting probabilities to the bandit , these could be randomly assigned as well
 n_experiment=100
 epsilon_decay=50 #probability of exploration
-img_shape = (100,100,3)
+img_shape = (112,112,3)
 N_episodes = 1
 num_imgs_6 = 48475
 genres = ['Action','Comedy','Drama','Horror','Romance','Thriller']
@@ -76,12 +76,14 @@ def make_prediction(image_uploaded,img_shape):
     with graph.as_default():
         
         #class_pred_prob = model.predict(x)
-        
-        output_layer = model.layers[-8].output
+        print(model.summary())
+        output_layer = model.layers[-2].output
+        print(output_layer.shape)
         input_layer = model.layers[0].input
         output_fn = K.function(input_layer, output_layer)
         class_layer = output_fn([x])
         print(class_layer)
+        #print(output_fn.summary())
         
     #class_pred = np.where(class_pred_prob>0.5,1,0)[0]
     
